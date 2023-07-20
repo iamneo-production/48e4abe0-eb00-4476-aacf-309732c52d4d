@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import '../Dashboard/form.css';
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const AddFoodOrder = () => {
   const [orderItems, setOrderItems] = useState([]);
   const [newItem, setNewItem] = useState('');
@@ -8,6 +9,12 @@ const AddFoodOrder = () => {
   const handleInputChange = (event) => {
     setNewItem(event.target.value);
   };
+  const orderCreate = () => {
+    console.log(orderItems);
+    toast.success("Order created Succesfully!",{
+      theme:"light",
+    });
+  }
 
   const handleAddItem = () => {
     if (newItem.trim() !== '') {
@@ -52,8 +59,17 @@ const AddFoodOrder = () => {
               Delete
             </button>
           </li>
+
+          
+          
         ))}
       </ul>
+      <button
+              onClick={orderCreate}
+              className="order-new"
+            >
+              Add Order
+            </button>
     </div>
     </div>
     </>

@@ -19,7 +19,7 @@ const Nav2 = () => {
 
   const handleLogout = () => {
   
-    navigate('/log');
+    navigate('/login');
   };
 
   let content = null;

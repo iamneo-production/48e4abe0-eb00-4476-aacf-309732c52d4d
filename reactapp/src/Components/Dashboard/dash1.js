@@ -20,7 +20,7 @@ const Nav1 = () => {
 
   const handleLogout = () => {
   
-    navigate('/log');
+    navigate('/login');
   };
 
   let content = null;

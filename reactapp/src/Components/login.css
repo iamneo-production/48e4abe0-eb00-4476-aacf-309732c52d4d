@@ -1,3 +1,4 @@
+/* Common styles */
 .si {
   font-family: cursive;
   height: 100vh;
@@ -30,12 +31,8 @@
   align-items: center;
 }
 
-.userName {
-  text-align: center;
-  font-size: xx-large;
-  font-weight: lighter;
-}
-
+/* Default styles */
+.userName,
 .password {
   text-align: center;
   font-size: xx-large;
@@ -62,14 +59,13 @@
 form input {
   font-size: medium;
 }
-#new{
- 
+
+#new {
   font-weight: bolder;
   font-size: larger;
 }
+
 .su {
-  padding: 5%;
-  width: 50%;
   margin-top: 30px;
   color: rgb(247, 243, 243);
   background-color: #0a0a0a;
@@ -79,4 +75,23 @@ form input {
   padding-right: 30px;
   border: 10px;
   border-radius: 10px;
+}
+
+/* Media queries for responsive design */
+@media (max-width: 768px) {
+  /* Adjust the container width to 80% on smaller screens */
+  .si .cont {
+    width: 80%;
+  }
+  
+  /* Adjust font sizes for smaller screens */
+  .userName,
+  .password {
+    font-size: large;
+  }
+  
+  /* Adjust button font size for smaller screens */
+  .cont div button {
+    font-size: medium;
+  }
 }

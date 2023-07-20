@@ -22,7 +22,7 @@ const Nav = () => {
 
   const handleLogout = () => {
   
-    navigate('/log');
+    navigate('/login');
   };
 
   let content = null;
