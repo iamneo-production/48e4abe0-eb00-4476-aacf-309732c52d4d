@@ -17,7 +17,8 @@ import Contact from './Components/pages/contact';
 import Nav from './Components/Dashboard/dash';
 import TermsAndConditions from './Components/pages/terms';
 import Nav1 from './Components/Dashboard/dash1';
-import Nav2 from './Components/Dashboard/dash3';
+import Nav2 from './Components/Dashboard/dash2';
+
 
 
 
@@ -29,7 +30,9 @@ function App() {
     
     <BrowserRouter>
       <Routes>
+      
         <Route path='/' element={<KitchenDisplay/>}></Route>
+
         <Route path='/login' element={<Login/>}></Route>
         <Route path='/signup' element={<Signup/>}></Route>
         
@@ -39,6 +42,7 @@ function App() {
          <Route path='/dash' element={<Nav/>}></Route>
          <Route path='/dash1' element={<Nav1/>}></Route>
          <Route path='/dash2' element={<Nav2/>}></Route>
+      
          <Route path='/contact' element={<Contact/>}></Route>
          <Route path='/terms' element={<TermsAndConditions/>}></Route>
       

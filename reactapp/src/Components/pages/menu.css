@@ -6,7 +6,7 @@
 }
 
 .all {
-  background-image: url('/src/assests/b13.jpg');
+  background-image: url('https://img.freepik.com/prmium-photo/chicken-salad-chicken-caesar-salad-caesar-salad-with-smoked-chicken-plate-grilled-chicken-breasts-fresh-salad-plate_286393-2425.jpg?w=1060');
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -35,6 +35,7 @@
   padding: 10px;
   text-align: center;
   border-bottom: 1px solid #ccc;
+  background-color: rgb(247, 243, 238);
 }
 
 /* Responsive Styles */

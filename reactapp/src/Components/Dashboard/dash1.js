@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FiLogOut } from 'react-icons/fi';
-import { FaMoneyBill } from 'react-icons/fa';
-import Dashboard from './DashboardPage';
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';  
+
+import Order from '../Dashboard/Orders/Order';
 import '../Dashboard/dash.css';
-
-import Order1 from './order1';
-import AddFoodOrder from './form';
-
+import AddFoodOrder from './AddFood/form';
 
 const Nav1 = () => {
   const [currentPage, setCurrentPage] = useState('dashboard');
@@ -20,29 +19,48 @@ const Nav1 = () => {
 
   const handleLogout = () => {
   
-    navigate('/login');
+    toast.error('Logged Out Successfully !', {
+      position: "bottom-right",
+      autoClose: 1000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
+    setTimeout(() => {
+      navigate('/login');
+    }, 1500);
+      
   };
 
   let content = null;
   switch (currentPage) {
-
+    
     case 'reports':
-      content = <Order1/>;
+      content = <Order />;
       break;
+    
       case 'form':
       content = <AddFoodOrder/>;
       break;
+    
+  
+ 
     default:
-      content = <Order1/>;
+      content = <Order/>;
       break;
   }
 
   return (
+     <>
+     
     <div className="dashboard">
       <div className="sidebar">
-        <div className="sidebar-heading">FOH Dashboard</div>
+        <div className="sidebar-heading">Front of House</div>
         <ul className="sidebar-menu">
-         
+          
           <li
             className={`sidebar-menu-item ${
               currentPage === 'reports' ? 'active' : ''
@@ -52,6 +70,7 @@ const Nav1 = () => {
             <span className="sidebar-menu-item-icon">📄</span>
             <span className="sidebar-menu-item-text">Orders</span>
           </li>
+          
           <li
             className={`sidebar-menu-item ${
               currentPage === 'form' ? 'active' : ''
@@ -61,16 +80,31 @@ const Nav1 = () => {
             <span className="sidebar-menu-item-icon">📄</span>
             <span className="sidebar-menu-item-text">New Order</span>
           </li>
-         
+          
+   
+    
           <li className="sidebar-menu-item" onClick={handleLogout}>
             <span className="sidebar-menu-item-icon"><FiLogOut /></span>
             <span className="sidebar-menu-item-text">Log out</span>
           </li>
         </ul>
       </div>
+        <ToastContainer
+              position="top-right"
+              autoClose={3000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+              theme="dark"
+            />
       <div className="content">{content}</div>
     </div>
+    </>
+
   );
 };
-
 export default Nav1;

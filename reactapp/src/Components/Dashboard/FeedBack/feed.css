@@ -1,15 +1,20 @@
 /* price.css */
 
-.price-list-container {
+.feed-list-container {
     width: 100%;
     max-width: 1200px;
     /* margin: 0 auto; */
     padding: 20px;
+   
+
   }
   
-  .price-list-container h1 {
+  .feed-list-container h1 {
     font-size: 32px;
     margin-bottom: 20px;
+  }
+  .sideall8{
+    width: 40px;
   }
   
   table {
@@ -31,8 +36,10 @@
   tr:hover {
     background-color: #f5f5f5;
   }
-  
-  .update-button {
+  .sideall8{
+    min-width: 30px;
+  }
+  .delete-button {
     padding: 10px 20px;
     background-color: #4caf50;
     color: #fff;
@@ -41,13 +48,13 @@
     cursor: pointer;
   }
   
-  .update-button:hover {
+  .delete-button:hover {
     background-color: #45a049;
   }
   
   /* Add responsive styles */
   @media (max-width: 576px) {
-    .price-list-container h1 {
+    .feed-list-container h1 {
       font-size: 28px;
     }
     
@@ -55,7 +62,7 @@
       font-size: 14px;
     }
     
-    .update-button {
+    .delete-button {
       padding: 8px 16px;
       font-size: 14px;
       

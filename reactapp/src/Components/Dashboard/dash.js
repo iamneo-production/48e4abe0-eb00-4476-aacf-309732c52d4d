@@ -1,35 +1,55 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FiLogOut } from 'react-icons/fi';
 import { FaMoneyBill } from 'react-icons/fa';
-import Dashboard from './DashboardPage';
+import Dashboard from '../Dashboard/Analysis/DashboardPage'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';  
 
 import '../Dashboard/dash.css';
-import Order from './Order';
-import PriceList from './price';
-import AddFoodOrder from './form';
-
-
-
-
+import Order from '../Dashboard/Orders/Order';
+import PriceList from '../Dashboard/Price/price';
+import AddFoodOrder from './AddFood/form';
+import FeedBack from './FeedBack/FeedBackTable';
 const Nav = () => {
   const [currentPage, setCurrentPage] = useState('dashboard');
   const navigate = useNavigate();
 
-  const handlePageChange = (page) => {
-    setCurrentPage(page);
-  };
+ 
 
   const handleLogout = () => {
   
-    navigate('/login');
+    toast.error('Logged Out Successfully !', {
+      position: "bottom-right",
+      autoClose: 1000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
+    setTimeout(() => {
+      navigate('/login');
+    }, 1500);
+      
   };
-
+  useEffect(() => {
+    // Check if the currentPage is stored in the localStorage
+    const savedPage = localStorage.getItem('currentPage');
+    if (savedPage) {
+      setCurrentPage(savedPage);
+    }
+  }, []);
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+    // Save the currentPage to localStorage
+    localStorage.setItem('currentPage', page);
+  };
   let content = null;
   switch (currentPage) {
-    case 'dashboard':
-      content = <Dashboard/>;
-      break;
+    
+  
     case 'reports':
       content = <Order />;
       break;
@@ -39,6 +59,9 @@ const Nav = () => {
       case 'form':
       content = <AddFoodOrder/>;
       break;
+      case 'feedback':
+      content = <FeedBack/>;
+      break;
   
  
     default:
@@ -47,20 +70,14 @@ const Nav = () => {
   }
 
   return (
-   
+     <>
+
+     
     <div className="dashboard">
       <div className="sidebar">
-        <div className="sidebar-heading">Dashboard</div>
+        <div className="sidebar-heading">Admin Dashboard</div>
         <ul className="sidebar-menu">
-          <li
-            className={`sidebar-menu-item ${
-              currentPage === 'dashboard' ? 'active' : ''
-            }`}
-            onClick={() => handlePageChange('dashboard')}
-          >
-            <span className="sidebar-menu-item-icon">📊</span>
-            <span className="sidebar-menu-item-text">Dashboard</span>
-          </li>
+         
           <li
             className={`sidebar-menu-item ${
               currentPage === 'reports' ? 'active' : ''
@@ -88,6 +105,15 @@ const Nav = () => {
             <span className="sidebar-menu-item-icon">📄</span>
             <span className="sidebar-menu-item-text">New Order</span>
           </li>
+          <li
+            className={`sidebar-menu-item ${
+              currentPage === 'feedback' ? 'active' : ''
+            }`}
+            onClick={() => handlePageChange('feedback')}
+          >
+            <span className="sidebar-menu-item-icon">📄</span>
+            <span className="sidebar-menu-item-text">FeedBack</span>
+          </li>
    
     
           <li className="sidebar-menu-item" onClick={handleLogout}>
@@ -96,12 +122,22 @@ const Nav = () => {
           </li>
         </ul>
       </div>
+        <ToastContainer
+              position="top-right"
+              autoClose={3000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+              theme="dark"
+            />
       <div className="content">{content}</div>
     </div>
+    </>
 
   );
 };
-
 export default Nav;
-
-

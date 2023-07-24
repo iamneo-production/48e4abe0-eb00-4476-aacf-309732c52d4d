@@ -3,16 +3,27 @@
 .dashboard-container {
   width: 100%;
   max-width: 1200px;
- 
-  padding: 20px;
+
 }
-.col2{
-  flex:0 0 auto;
+
+.content {
+  display: flex;
+  flex-direction: row;
+}
+
+.sideall {
+  width: 50px;
+}
+
+.col2 {
+  flex: 0 0 auto;
   width: 16.66666667%;
 }
+
 .dashboard-container h1 {
   font-size: 32px;
   margin-bottom: 20px;
+  text-align: center;
 }
 
 .dashboard-grid {
@@ -21,10 +32,10 @@
   gap: 20px;
 }
 
-
 .dashboard-card {
   border: 1px solid #ddd;
   padding: 20px;
+ 
   height: 200px;
   border-radius: 4px;
   background-color: #f7f7f7;
@@ -50,8 +61,18 @@
   border-radius: 4px;
 }
 
+/* dashboard.css */
+
+/* Existing styles... */
+
 /* Add responsive styles */
-@media (max-width: 576px) {
+@media (max-width: 1200px) {
+  .dashboard-container {
+    max-width: 100%; /* Adjust maximum width for smaller screens */
+  }
+}
+
+@media (max-width: 768px) {
   .dashboard-container {
     padding: 10px;
   }
@@ -60,21 +81,40 @@
     font-size: 28px;
   }
 
+  .content {
+    flex-direction: column; /* Stack columns vertically on smaller screens */
+  }
+
+  .sideall {
+    width: auto; /* Allow the sideall column to adjust its width */
+  }
+
+  .col2 {
+    flex: 1; /* Let the second column expand to fill the remaining width */
+    width: auto; /* Allow the second column to adjust its width */
+  }
+
   .dashboard-grid {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 10px; /* Adjust gap for smaller screens */
   }
 
   .dashboard-card {
     padding: 16px;
+    height: auto; /* Allow card height to adjust to content */
   }
 
   .dashboard-card h3 {
-    font-size: 20px;
+    font-size: 22px;
+    margin-bottom: 8px; /* Adjust margin for smaller screens */
   }
 
   .dashboard-card p {
     font-size: 16px;
+    margin-bottom: 8px; /* Adjust margin for smaller screens */
+  }
+
+  .buttonStyle {
+    padding: 8px 15px; /* Adjust button padding for smaller screens */
   }
 }
-
-  
