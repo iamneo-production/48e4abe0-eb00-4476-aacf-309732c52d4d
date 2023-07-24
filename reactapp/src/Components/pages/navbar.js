@@ -10,6 +10,7 @@ import MenuBookIcon from '@mui/icons-material/MenuBook';
 import RestaurantMenuIcon from '@mui/icons-material/RestaurantMenu';
 import { ExitToApp } from '@mui/icons-material';
 import LoginIcon from '@mui/icons-material/Login';
+import Contact from './contact';
 const Navbar = () => {
   return (
     <nav className="navbar">

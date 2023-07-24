@@ -1,0 +1,93 @@
+/* Common styles */
+#orders {
+  background-color: bisque;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center; /* Center the background image */
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  min-height: 100vh;
+}
+
+#orders h3 {
+  color: white;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+#orders ul {
+  list-style-type: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+}
+
+#orders ul li {
+  height: fit-content;
+  margin-bottom: 5px;
+  padding: 7px;
+  background-image: url('/src/assests/images.png');
+  background-size: cover;
+  background-blend-mode: darken;
+}
+
+#orders li h3 {
+  color: forestgreen;
+  font-weight: bold;
+  background-image: none !important;
+}
+
+.butt-dash {
+  display: flex;
+  justify-content: center;
+}
+
+.butt-dash button {
+  padding: 10px 20px;
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.butt-dash button:hover {
+  background-color: #b02a37;
+}
+
+#orders ul li ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr) !important;
+  grid-gap: 0;
+}
+
+#orders ul li ul li {
+  text-align: center;
+  font-size: large;
+  margin: 1px 1px 1px 1px;
+  box-shadow: none;
+  background-image: none !important;
+}
+
+.sideall2 {
+  min-width: 20px;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+  #orders ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 576px) {
+  #orders ul {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

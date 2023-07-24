@@ -1,24 +1,26 @@
+/* addFoodOrder.css */
 .dashboard {
   display: flex;
   flex-direction: column;
-  height: 100vh;
-  
+  min-height: 100vh;
 }
-
 
 .sidebar {
   width: 100%;
+  position: fixed;
   max-width: 200px;
   background-color: black;
   padding: 20px;
   display: flex;
   flex-direction: column;
   color: wheat;
-
+  min-height: 100vh;
 }
-.all4{
+
+.all4 {
   background-color: antiquewhite;
 }
+
 .sidebar ul {
   list-style-type: none;
   padding: 0;
@@ -54,7 +56,7 @@
 
 .content {
   flex: 1;
-  padding: 20px;
+
   background-color: #fff;
 }
 
@@ -62,6 +64,7 @@
   font-size: 20px;
   font-weight: bold;
   margin-bottom: 10px;
+  font-family:Roboto;
 }
 
 .sidebar-menu {
@@ -107,6 +110,7 @@
 
   .content {
     flex: 1;
+    margin-left: 200px; /* Add a margin to content when sidebar is visible */
   }
 }
 
@@ -114,6 +118,11 @@
   .sidebar {
     width: 100%;
     max-width: none;
+    position: static; /* Remove fixed positioning on smaller screens */
+    margin-bottom: 20px; /* Add some spacing at the bottom on smaller screens */
+  }
+
+  .content {
+    flex: 1;
   }
 }
-
